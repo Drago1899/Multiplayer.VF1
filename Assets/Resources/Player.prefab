@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 15
   animator: {fileID: 4758832184738622074}
+  Score: 0
 --- !u!95 &4758832184738622074
 Animator:
   serializedVersion: 5
@@ -279,7 +280,7 @@ MonoBehaviour:
     Name: Vertical
   - Type: 1
     SynchronizeType: 0
-    Name: Speed
+    Name: Vel
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
