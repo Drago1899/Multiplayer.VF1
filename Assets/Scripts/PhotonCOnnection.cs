@@ -30,6 +30,7 @@ public class PhotonCOnnection : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom() {
         print(" Se entro al room");
         //PhotonNetwork.Instantiate("Player", new Vector2(0, 0), Quaternion.identity);
+        
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message) {
@@ -49,13 +50,18 @@ public class PhotonCOnnection : MonoBehaviourPunCallbacks
     public void joinRoom()
     {
         PhotonNetwork.JoinRoom(m_newInputField.text);
+        PhotonNetwork.LoadLevel("SampleScene");
+
+
 
     }
 
     public void createRoom()
     {
         PhotonNetwork.CreateRoom(m_newInputField.text,newRoomInfo(),null );
+        PhotonNetwork.LoadLevel("SampleScene");
+
     }
 
-        
+
 }
