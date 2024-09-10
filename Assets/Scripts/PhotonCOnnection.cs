@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class PhotonCOnnection : MonoBehaviourPunCallbacks
 {
+    [SerializeField] TMP_InputField m_newInputField;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class PhotonCOnnection : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom() {
         print(" Se entro al room");
-        PhotonNetwork.Instantiate("Player", new Vector2(0, 0), Quaternion.identity);
+        //PhotonNetwork.Instantiate("Player", new Vector2(0, 0), Quaternion.identity);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message) {
@@ -42,6 +44,17 @@ public class PhotonCOnnection : MonoBehaviourPunCallbacks
 
         return roomOptions;
 
+    }
+
+    public void joinRoom()
+    {
+        PhotonNetwork.JoinRoom(m_newInputField.text);
+
+    }
+
+    public void createRoom()
+    {
+        PhotonNetwork.CreateRoom(m_newInputField.text,newRoomInfo(),null );
     }
 
         
